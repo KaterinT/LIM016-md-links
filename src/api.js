@@ -42,7 +42,7 @@ const getArrayFilesMd = (route) => {
   }
   else if (isExtMd(route)) {
     arrayFilesMd.push(convertToAbsolute(route));
-  }
+  };
   return arrayFilesMd;
 }
 
@@ -50,7 +50,7 @@ const getArrayFilesMd = (route) => {
 
 const readFile = (route) => fs.readFileSync(route,{ encoding: "utf-8"})
 
-// **********Si existen,extraer links de los archivos hallados**************
+// **********Si existe la ruta,extraer links de los archivos hallados**************
 
 const extrLinkFromFile = (route) => {
   const arrayLinks = [];
@@ -62,7 +62,7 @@ const extrLinkFromFile = (route) => {
 
     let arrayLinksWithText = readFile(fileAbsolute).match(urlLinks); //obtiene [textoReferenciaDelLink] y (links)  de links contenidos en cada archivo
 
-    if (arrayLinksWithText != null) {
+    if (arrayLinksWithText != null ) {
  
       arrayLinksWithText.forEach((LinksWithText) => {
         // console.log(LinksWithText);
@@ -75,8 +75,7 @@ const extrLinkFromFile = (route) => {
           file: fileAbsolute,
         });
       });
-    }
-    // console.log(linksResolve) ;
+    } 
   });
     return arrayLinks;
   // });
