@@ -11,3 +11,4 @@ const { existsPath,isAbsolutePath ,isDirectory,readDirectory,isExtMd,getArrayFil
 console.log(getArrayFilesMd("./testMode/testMode3SinFilesM"));
 // console.log(extrLinkFromFile("./testMode/testMode2"))
 
+

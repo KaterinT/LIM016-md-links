@@ -54,7 +54,6 @@ const readFile = (route) => fs.readFileSync(route,{ encoding: "utf-8"})
 
 const extrLinkFromFile = (route) => {
   const arrayLinks = [];
-
   getArrayFilesMd(route).forEach((fileAbsolute) => {
     const urlLinks = /\[([^\[]+)\](\(.*\))/gm;
     const regexLinks = /\(((?:\/|https?:\/\/)[\w\d./?=#&_%~,.:-]+)\)/mg;
@@ -81,6 +80,11 @@ const extrLinkFromFile = (route) => {
   // });
 };
 
+// **********Si la opción es --validate,ver si los links funcionan o no**************
+
+const validateLinks = (arraylinks) => {
+  return arraylinks;
+}
 // console.log("inicializando lec");
 // console.log(readdirSync);
 // console.log("finalizando lec");
@@ -99,6 +103,7 @@ module.exports = {
   getArrayFilesMd,
   readFile,
   extrLinkFromFile,
+  validateLinks,
 };
 
 // console.log(suma(1,6));
