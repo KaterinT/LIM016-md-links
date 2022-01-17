@@ -1,16 +1,17 @@
 
 // const suma = (n1,n2) => n1+n2;
 // const resta = (n1,n2) => n1-n2;
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+import fetch from 'node-fetch';
 
 // ******Verifica si la ruta existe con true o false *******
 
-const existsPath = (route) => fs.existsSync(route);
+export const existsPath = (route) => fs.existsSync(route);
 
 // ******Verifica si la ruta es Absoluta con true o false *******
 
-const isAbsolutePath = (route) => path.isAbsolute(route);
+ const isAbsolutePath = (route) => path.isAbsolute(route);
 
 // ******Convierte la ruta en absoluto si es relativa ****** //
 
@@ -19,7 +20,7 @@ const convertToAbsolute = (route) => isAbsolutePath(route) ? (route) : path.reso
 
 // ******Verifica si es un directorio con true o false*******
 
-const isDirectory = (route) => fs.statSync(route).isDirectory();
+ const isDirectory = (route) => fs.statSync(route).isDirectory();
 
 // ******* Para leer un directorio .Retorna un array de archivos y/o carpetas que haya en el directorio******** //
 
@@ -27,11 +28,11 @@ const readDirectory = (route) => fs.readdirSync(route);
 
 // ******Verifica si la extension del archivo es .md con true o false******
 
-const isExtMd = (route) => path.extname(route) ==='.md' ;
+ const isExtMd = (route) => path.extname(route) ==='.md' ;
 
 // **********recorrer directorio y buscar obtener algún archivo .md***************
 
-const getArrayFilesMd = (route) => {
+ const getArrayFilesMd = (route) => {
   let arrayFilesMd = [];
   let joinRoute;
   if (isDirectory(route)) {
@@ -50,9 +51,9 @@ const getArrayFilesMd = (route) => {
 
 const readFile = (route) => fs.readFileSync(route,{ encoding: "utf-8"})
 
-// **********Si existe la ruta,extraer links de los archivos hallados**************
+// **********Extraer links de los archivos MD hallados--> y option validate:false**************
 
-const extrLinkFromFile = (route) => {
+export const extrLinkFromFile = (route) => {
   const arrayLinks = [];
   getArrayFilesMd(route).forEach((fileAbsolute) => {
     const urlLinks = /\[([^\[]+)\](\(.*\))/gm;
@@ -80,30 +81,52 @@ const extrLinkFromFile = (route) => {
   // });
 };
 
-// **********Si la opción es --validate,ver si los links funcionan o no**************
+// **********Ver si los links funcionan o no --> y option validate:true**************
 
-const validateLinks = (arraylinks) => {
-  return arraylinks;
+export const validateLinks = (arraylinks) => {
+//Tomar el array con archivos md obtenidos de extrLinkFromFile
+  return Promise.all (arraylinks.map((link) => {
+    return fetch(link.href)
+      .then(resul => { 
+        const statusText = resul.status >= 200 && resul.status <= 399 ? 'Ok' : 'Fail';       
+        return {
+          href: link.href,
+          text: link.text,
+          file: link.file,
+          status: resul.status,
+          message: statusText,
+        }
+      })
+      .catch(()=>{
+        return {
+          href: link.href,
+          text: link.text,
+          file: link.file,
+          status: '',
+          message: 'Fail',}
+
+      });
+  }))
 }
 // console.log("inicializando lec");
 // console.log(readdirSync);
 // console.log("finalizando lec");
 
 // ****************************
-module.exports = {
+// module.exports = {
   // ...
   // suma,
   // resta
   // existsRoute,
-  existsPath,
-  isAbsolutePath,
-  isDirectory,
-  readDirectory,
-  isExtMd,
-  getArrayFilesMd,
-  readFile,
-  extrLinkFromFile,
-  validateLinks,
-};
+//   existsPath,
+//   isAbsolutePath,
+//   isDirectory,
+//   readDirectory,
+//   isExtMd,
+//   getArrayFilesMd,
+//   readFile,
+//   extrLinkFromFile,
+//   validateLinks,
+// };
 
 // console.log(suma(1,6));

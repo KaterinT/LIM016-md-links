@@ -1,4 +1,4 @@
-const url = 'https://pokeapi.co/api/v2/pokemon/90';
+const url = 'hjkhk';
 
 fetch(url)
   // .then (response =>response.json())

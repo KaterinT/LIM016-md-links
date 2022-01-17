@@ -1,27 +1,26 @@
-const api = require ('./api.js');
-const chalk = require ('chalk');
+import * as api from './api.js';
+import chalk from 'chalk';
 
 
-const mdLinks = (path,options) => new Promise ((resolve,reject) => {
-  const arrayLinks = api.extrLinkFromFile(path);
-  
-  if(api.existsPath(path)) {
-    if (api.extrLinkFromFile(path).length!==0) {
-      if(options === '--validate') {
-        resolve(console.log((api.validateLinks(arrayLinks))));
-      }else {
-        resolve(console.log((arrayLinks)));
-      }
-    }else{
-      reject(console.log(chalk.bold.red('no hay links en este archivo')))
-    }
-    // resolve(chalk.blue(path));
-  }else {
-    reject((console.log(chalk.bold.red('errooor path no exist'))));
-  };
+export const mdLinks = (path,option) => new Promise ((resolve,reject) => {
+    if(api.existsPath(path)) {
+      const arrayLinks = api.extrLinkFromFile(path);
+        if (arrayLinks.length!==0) {
+          if(option.validate) {
+            resolve((api.validateLinks(arrayLinks)));
+          }else {
+            resolve((arrayLinks));
+          }
+        }else{
+          reject(chalk.bold.red('no hay links en este archivo'))
+        }
+      // resolve(chalk.blue(path));
+    }else {
+      reject((chalk.bold.red('error path no exist')));
+    };
 })
 
-module.exports = {
-  mdLinks,
-}
+// module.exports = {
+//   mdLinks,
+// }
 
