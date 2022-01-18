@@ -81,11 +81,12 @@ export const extrLinkFromFile = (route) => {
   // });
 };
 
-// **********Ver si los links funcionan o no --> y option validate:true**************
+// **********Ver si los links funcionan o no --> option validate:true --> **************
 
-export const validateLinks = (arraylinks) => {
+export  const validateLinks = (arraylinks) => {
 //Tomar el array con archivos md obtenidos de extrLinkFromFile
   return Promise.all (arraylinks.map((link) => {
+    // console.log('link',link);
     return fetch(link.href)
       .then(resul => { 
         const statusText = resul.status >= 200 && resul.status <= 399 ? 'Ok' : 'Fail';       
@@ -108,6 +109,29 @@ export const validateLinks = (arraylinks) => {
       });
   }))
 }
+
+// **********Estadísticas básicas sobre los links --> Option validate:true --> **************
+
+// const statusLinks = (arraylinks) => {
+//   //Tomar el array con archivos md obtenidos de extrLinkFromFile
+//   return Promise.all (arraylinks.map((link) => {
+//     return fetch(link.href)
+//       .then(resul => ({
+//           status: resul.status,
+//           message: statusText,
+//         }))
+//       .catch(()=>{
+//         return {
+//           href: link.href,
+//           text: link.text,
+//           file: link.file,
+//           status: '',
+//           message: 'Fail',}
+
+//       });
+//   }))
+
+// };
 // console.log("inicializando lec");
 // console.log(readdirSync);
 // console.log("finalizando lec");

@@ -5,6 +5,7 @@ import chalk from 'chalk';
 export const mdLinks = (path,option) => new Promise ((resolve,reject) => {
     if(api.existsPath(path)) {
       const arrayLinks = api.extrLinkFromFile(path);
+      
         if (arrayLinks.length!==0) {
           if(option.validate) {
             resolve((api.validateLinks(arrayLinks)));
@@ -19,8 +20,4 @@ export const mdLinks = (path,option) => new Promise ((resolve,reject) => {
       reject((chalk.bold.red('error path no exist')));
     };
 })
-
-// module.exports = {
-//   mdLinks,
-// }
 

@@ -20,7 +20,8 @@
     "url": "git+https://github.com/KaterinT/LIM016-md-links.git"
   },
   "keywords": [
-    "markdown"
+    "markdown",
+    "links"
   ],
   "author": "Katerin Tello",
   "license": "ISC",
