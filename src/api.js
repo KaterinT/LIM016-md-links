@@ -11,7 +11,7 @@ export const existsPath = (route) => fs.existsSync(route);
 
 // ******Verifica si la ruta es Absoluta con true o false *******
 
- const isAbsolutePath = (route) => path.isAbsolute(route);
+const isAbsolutePath = (route) => path.isAbsolute(route);
 
 // ******Convierte la ruta en absoluto si es relativa ****** //
 
@@ -32,7 +32,7 @@ const readDirectory = (route) => fs.readdirSync(route);
 
 // **********recorrer directorio y buscar obtener algún archivo .md***************
 
- const getArrayFilesMd = (route) => {
+ export const getArrayFilesMd = (route) => {
   let arrayFilesMd = [];
   let joinRoute;
   if (isDirectory(route)) {
