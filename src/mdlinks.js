@@ -1,6 +1,5 @@
 import * as api from './api.js';
-import chalk from 'chalk';
-
+import {welcome,errorPath,errorNoLinks} from './utils.js';
 
 export const mdLinks = (path,option) => new Promise ((resolve,reject) => {
     if(api.existsPath(path)) {
@@ -8,18 +7,19 @@ export const mdLinks = (path,option) => new Promise ((resolve,reject) => {
       const arrayLinks = api.extrLinkFromFile(path);
       
         if (arrayLinks.length!==0) {
+          welcome();
           if(option.validate) {
             resolve((api.validateLinks(arrayLinks)));
           }else {
             resolve((arrayLinks));
           }
         }else{
-          reject(chalk.bold.red('no hay links en este archivo'))
+          reject((errorNoLinks()))
         }
       // resolve(chalk.blue(path));
     }else {
       // console.log('api.existsPath(path) en reject:',api.existsPath(path))
-      reject((chalk.bold.red('error path no exist')));
+      reject( errorPath());
     };
 })
 
