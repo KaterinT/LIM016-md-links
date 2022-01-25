@@ -20,7 +20,7 @@
 📦**MDKATE** : es una librería de línea de comando(CLI) ejecutable con [Node.js](https://nodejs.org/) 🟩. Permite identificar,validar y tener estadísticas de las URL's contenidas en archivos de formato [Markdown](https://es.wikipedia.org/wiki/Markdown) el cual es un lenguaje de marcado ligero muy popular entre developers construido con el [motor de JavaScript V8 de Chrome](https://developers.google.com/v8/).
 
 <div align="center">
-<img src="src/img/Readme/mdkate.png" title ="mdkate" width="800">
+<img src="src/img/README/mdkate.png" title ="mdkate" width="800">
 </div>
 ## 2. Instalación
 
