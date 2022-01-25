@@ -2,23 +2,26 @@
 import * as mdLinks from './mdLinks.js';
 import {totalAndUnique,broken} from './cliStats.js';
 import pkg from 'inquirer';
-import {errorCommandeInvalid} from './utils.js';
-
+import {errorCommandeInvalid,help} from './utils.js';
+import chalk from 'chalk';
 
 const {prompt} = pkg;
-// const [,, ...args] = process.argv;
-// console.log(args);
-// console.log(process.argv[2]);
-
 const option = process.argv.slice(2);
 
-
 if (option.length === 1) {
-  mdLinks.mdLinks(option[0], {validate:false} )
-    .then(resul => {
-      console.log(resul)
-    })
+  if (    option[0] === '--help' ){
+    console.log(help());
+  } else {
+    mdLinks.mdLinks(option[0], {validate:false} )
+    .then((resul) => resul.map((element) => {
+      const href = chalk.underline.cyan(element.href);
+      const text = chalk.italic.blue(element.text);
+      const file = chalk.bold.magenta(element.file);
+      console.log(`{\n${chalk.bold.green('href :')} ${href}\n${chalk.bold.green('file :')} ${file}\n${chalk.bold.green('text :')} ${text}\n}`);
+    }))
     .catch(resul => console.log(resul))
+  }
+
 
 } else if (option.length === 2) {
   option[1] = option[1].toLowerCase();
@@ -26,7 +29,14 @@ if (option.length === 1) {
     case('--validate'):
     case('--v'):
       mdLinks.mdLinks(option[0], {validate:true} )
-        .then(resul => console.log(resul))
+      .then((resul) => resul.map((element) => {
+        const href = chalk.underline.cyan(element.href);
+        const text = chalk.italic.blue(element.text);
+        const file = chalk.bold.magenta(element.file);
+        const status = chalk.bold.yellowBright(element.status);
+        const message = chalk.bold.black(element.message);
+        console.log(`{\n${chalk.bold.green('href :')} ${href}\n${chalk.bold.green('file :')} ${file}\n${chalk.bold.green('text :')} ${text}\n${chalk.bold.green('status :')} ${status}\n${chalk.bold.green('message :')} ${ message}\n}`);
+      }))
         .catch(resul => console.log(resul))
       break;
     case('--stats'):
@@ -38,7 +48,7 @@ if (option.length === 1) {
     default:
       console.log(errorCommandeInvalid());
       break;
-  }
+}
 } else if (option.length === 3) {
   option[1] = option[1].toLowerCase();
   option[2] = option[2].toLowerCase();
@@ -51,7 +61,6 @@ if (option.length === 1) {
       console.log('Lo siento, no es un comando válido.');
     }
 } else {
-
   //*****ejectado funcionalidad con el prompt para elegir una opcion en el cli*****/
       prompt([
         {
@@ -74,12 +83,24 @@ if (option.length === 1) {
           switch(answers.options ) {
             case('none'):
               mdLinks.mdLinks(answers.path, { validate: false })
-                .then(result =>console.log(result) )
+                .then((resul) => resul.map((element) => {
+                  const file = chalk.bold.magenta(element.file);
+                  const href = chalk.underline.cyan(element.href);
+                  const text = chalk.italic.blue(element.text);
+                  console.log(`{\n${chalk.bold.green('file :')} ${file}\n${chalk.bold.green('href :')} ${href}\n${chalk.bold.green('text :')} ${text}\n}`);
+                }))
                 .catch(resul => console.log('se produjo un error',resul))
                 break;
             case('Validate Links'):
               mdLinks.mdLinks(answers.path, {validate:true})
-                .then(resul => console.log(resul))
+                .then((resul) => resul.map((element) => {
+                  const href = chalk.underline.cyan(element.href);
+                  const text = chalk.italic.blue(element.text);
+                  const file = chalk.bold.magenta(element.file);
+                  const status = chalk.bold.yellowBright(element.status);
+                  const message = chalk.bold.black(element.message);
+                  console.log(`{\n${chalk.bold.green('href :')} ${href}\n${chalk.bold.green('file :')} ${file}\n${chalk.bold.green('text :')} ${text}\n${chalk.bold.green('status :')} ${status}\n${chalk.bold.green('message :')} ${ message}\n}`);
+                }))
                 .catch(resul => console.log(resul)) 
                 break;         
             case('Stats Links'):

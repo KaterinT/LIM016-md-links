@@ -4,7 +4,7 @@
 import fs from 'fs';
 import path from 'path';
 import fetch from 'node-fetch';
-import chalk from 'chalk';
+
 
 // ******Verifica si la ruta existe con true o false *******
 
@@ -12,24 +12,24 @@ export const existsPath = (route) => fs.existsSync(route);
 
 // ******Verifica si la ruta es Absoluta con true o false *******
 
-const isAbsolutePath = (route) => path.isAbsolute(route);
+export const isAbsolutePath = (route) => path.isAbsolute(route);
 
 // ******Convierte la ruta en absoluto si es relativa ****** //
 
-const convertToAbsolute = (route) => isAbsolutePath(route) ? (route) : path.resolve(route);
+export const convertToAbsolute = (route) => isAbsolutePath(route) ? (route) : path.resolve(route);
 
 
 // ******Verifica si es un directorio con true o false*******
 
- const isDirectory = (route) => fs.statSync(route).isDirectory();
+export const isDirectory = (route) => fs.statSync(route).isDirectory();
 
 // ******* Para leer un directorio .Retorna un array de archivos y/o carpetas que haya en el directorio******** //
 
-const readDirectory = (route) => fs.readdirSync(route);
+export const readDirectory = (route) => fs.readdirSync(route);
 
 // ******Verifica si la extension del archivo es .md con true o false******
 
- const isExtMd = (route) => path.extname(route) ==='.md' ;
+export const isExtMd = (route) => path.extname(route) ==='.md' ;
 
 // **********recorrer directorio y buscar obtener algún archivo .md***************
 
@@ -50,7 +50,7 @@ const readDirectory = (route) => fs.readdirSync(route);
 
 // ******leer archivos *******
 
-const readFile = (route) => fs.readFileSync(route,{ encoding: "utf-8"})
+export const readFile = (route) => fs.readFileSync(route,{ encoding: "utf-8"})
 
 // **********Extraer links de los archivos MD hallados--> y option validate:false**************
 
