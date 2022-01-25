@@ -35,7 +35,7 @@ A través de la terminal:
 **1.** `mdkate --help` o `mdkate --h`
 
 <div align="center">
-<img src="src/img/README/1mdkate.png" title ="mdkate --help">
+<img src="src/img/README/1mdkate.png" title ="mdkate --help " width="800">
 </div>
 
 **2.** `mdkate <path-to-file>`
