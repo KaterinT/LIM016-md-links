@@ -20,7 +20,7 @@
 📦**MDKATE** : es una librería de línea de comando(CLI) ejecutable con [Node.js](https://nodejs.org/) 🟩. Permite identificar,validar y tener estadísticas de las URL's contenidas en archivos de formato [Markdown](https://es.wikipedia.org/wiki/Markdown) el cual es un lenguaje de marcado ligero muy popular entre developers construido con el [motor de JavaScript V8 de Chrome](https://developers.google.com/v8/).
 
 <div align="center">
-<img src="src/img/README/mdkate.png" title ="mdkate" width="800">
+<img src="src/img/README/mdkate.PNG" title ="mdkate" width="800">
 </div>
 ## 2. Instalación
 
@@ -38,28 +38,28 @@ A través de la terminal:
 <img src="/src/img/README/1mdkate.PNG" title ="mdkate--help " width="800">
 </div>
 
-**2.** `mdkate <path-to-file>`
+**2.** `mdkate <path-to-file>`.
 
 <div align="center">
-<img src="src/img/README/2mdkate.png" title ="mdkate<path-to-file>">
+<img src="src/img/README/2mdkate.PNG" title ="mdkate<path-to-file>">
 </div>
 
-**3.** `mdkate <path-to-file> --validate` o `mdkate <path-to-file> --v`
+**3.** `mdkate <path-to-file> --validate` o `mdkate <path-to-file> --v`.
 
 <div align="center">
-<img src="src/img/README/3mdkate.png" title ="mdkate <path-to-file> --validate">
+<img src="src/img/README/3mdkate.PNG" title ="mdkate <path-to-file> --validate">
 </div>
 
-**4.** `mdkate <path-to-file> --start` o `mdkate <path-to-file> --s`
+**4.** `mdkate <path-to-file> --start` o `mdkate <path-to-file> --s`.
 
 <div align="center">
-<img src="src/img/README/4mdkate.png" title ="mdkate <path-to-file> --start">
+<img src="src/img/README/4mdkate.PNG" title ="mdkate <path-to-file> --start">
 </div>
 
-**5.** `mdkate <path-to-file> --start --validate` o `mdkate <path-to-file> --s --v` o `mdkate <path-to-file> --validate --start` o `<path-to-file> --v --s` 
+**5.** `mdkate <path-to-file> --start --validate` o `mdkate <path-to-file> --s --v` o `mdkate <path-to-file> --validate --start` o `<path-to-file> --v --s` .
 
 <div align="center">
-<img src="src/img/README/5mdkate.png" title ="mdkate <path-to-file> --start --validate">
+<img src="src/img/README/5mdkate.PNG" title ="mdkate <path-to-file> --start --validate">
 </div>
 
 ## 3.2 Guía de uso (opcional: usando prompt)
@@ -69,22 +69,22 @@ A través de la terminal:
 ```
 mdkate
 ```
-**1.** Ingresa `<path-to-file>`
+**1.** Ingresa `<path-to-file>`.
 
 <div align="center">
-<img src="src/img/README/1mdkatePrompt.png" title ="mdkate paso1">
+<img src="src/img/README/1mdkatePrompt.PNG" title ="mdkate paso1">
 </div>
 
 **2.** Selecciona una opción :
 
 <div align="center">
-<img src="src/img/README/2mdkatePrompt.png" title ="mdkate paso2">
+<img src="src/img/README/2mdkatePrompt.PNG" title ="mdkate paso2">
 </div>
 
 **3.** Devuelve un resultado :
 
 <div align="center">
-<img src="src/img/README/3mdkatePrompt.png" title ="mdkate paso3">
+<img src="src/img/README/3mdkatePrompt.PNG" title ="mdkate paso3">
 </div>
 
 ## 4.Flowchart
