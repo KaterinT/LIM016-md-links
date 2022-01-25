@@ -35,13 +35,13 @@ A través de la terminal:
 **1.** `mdkate --help` o `mdkate --h`
 
 <div align="center">
-<img src="src/img/README/1mdkate.png" title ="mdkate --help " width="800">
+<img src="src/img/README/1mdkate.png" title ="mdkate--help " width="800">
 </div>
 
 **2.** `mdkate <path-to-file>`
 
 <div align="center">
-<img src="src/img/README/2mdkate.png" title ="mdkate <path-to-file>">
+<img src="src/img/README/2mdkate.png" title ="mdkate<path-to-file>">
 </div>
 
 **3.** `mdkate <path-to-file> --validate` o `mdkate <path-to-file> --v`
