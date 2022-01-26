@@ -4,7 +4,9 @@
 import fs from 'fs';
 import path from 'path';
 import fetch from 'node-fetch';
-
+import md from 'markdown-it';
+import jsdom from "jsdom";
+const { JSDOM } = jsdom;
 
 // ******Verifica si la ruta existe con true o false *******
 
@@ -57,22 +59,23 @@ export const readFile = (route) => fs.readFileSync(route,{ encoding: "utf-8"})
 export const extrLinkFromFile = (route) => {
   const arrayLinks = [];
   getArrayFilesMd(route).forEach((fileAbsolute) => {
-    const urlLinks = /\[([^\[]+)\](\(.*\))/gm;
-    const regexLinks = /\(((?:\/|https?:\/\/)[\w\d./?=#&_%~,.:-]+)\)/mg;
-    const regExText = /\[[^\s]+(.+?)\]/gi;
 
+    const urlLinks = /\[([^\[]+)\](\(.*\))/gm;
     let arrayLinksWithText = readFile(fileAbsolute).match(urlLinks); //obtiene [textoReferenciaDelLink] y (links)  de links contenidos en cada archivo
 
     if (arrayLinksWithText != null ) {
- 
+      let result = md().render(readFile(fileAbsolute));//convierte el archivo MD en texto html
+
+      let dom = new JSDOM(result)
+      arrayLinksWithText = dom.window.document.querySelectorAll("a")
+      // console.log('arraLinksWithText',arrayLinksWithText);
       arrayLinksWithText.forEach((LinksWithText) => {
         // console.log(LinksWithText);
-        const uniqueLinks = LinksWithText.match(regexLinks).join().slice(1,-1); //devuelve solo el link url
-        const uniqueText = LinksWithText.match(regExText).join().slice(1, -1); //devuelve solo el texto 
-
+        const uniqueLinks = LinksWithText.href //devuelve solo el link url
+        const uniqueText = LinksWithText.textContent.substring(0,50); //devuelve solo el texto 
         arrayLinks.push({
           href: uniqueLinks,
-          text: uniqueText.substring(0, 50),
+          text: uniqueText,
           file: fileAbsolute,
         });
       });
@@ -110,48 +113,3 @@ export  const validateLinks = (arraylinks) => {
       });
   }))
 }
-
-// **********Estadísticas básicas sobre los links --> Option validate:true --> **************
-
-// const statusLinks = (arraylinks) => {
-//   //Tomar el array con archivos md obtenidos de extrLinkFromFile
-//   return Promise.all (arraylinks.map((link) => {
-//     return fetch(link.href)
-//       .then(resul => ({
-//           status: resul.status,
-//           message: statusText,
-//         }))
-//       .catch(()=>{
-//         return {
-//           href: link.href,
-//           text: link.text,
-//           file: link.file,
-//           status: '',
-//           message: 'Fail',}
-
-//       });
-//   }))
-
-// };
-// console.log("inicializando lec");
-// console.log(readdirSync);
-// console.log("finalizando lec");
-
-// ****************************
-// module.exports = {
-  // ...
-  // suma,
-  // resta
-  // existsRoute,
-//   existsPath,
-//   isAbsolutePath,
-//   isDirectory,
-//   readDirectory,
-//   isExtMd,
-//   getArrayFilesMd,
-//   readFile,
-//   extrLinkFromFile,
-//   validateLinks,
-// };
-
-// console.log(suma(1,6));
