@@ -22,6 +22,7 @@
 <div align="center">
 <img src="src/img/README/mdkate.png" title ="mdkate" width="800">
 </div>
+
 ## 2. Instalación
 
 Instalar la [libreria](https://www.npmjs.com/package/mdkate)  via `npm i mdkate`
@@ -35,7 +36,7 @@ A través de la terminal:
 **1.** `mdkate --help` o `mdkate --h`.
 
 <div align="center">
-<img src="/src/img/README/1mdkate.PNG" title ="mdkate--help " width="800">
+<img src="src/img/README/1mdkate.PNG" title="mdkate--help" width="800">
 </div>
 
 **2.** `mdkate <path-to-file>`.
@@ -91,9 +92,12 @@ mdkate
 
  <details><summary>Diagramas</summary><p>
 
-  * [API](flowcharts/flowcharts\1) JavaScript API _WithTitle.pdf)
+  * [API](flowcharts/API.png)
+  <img src="flowcharts/API.png" title ="API">
 
-  * [CLI](flowcharts/flowcharts\1) JavaScript API _WithTitle.pdf)
+  * [CLI](flowcharts/CLI.png)
+  <img src="flowcharts/CLI.png" title ="CLI">
+
 </p></details>
 
 ## 5. Backlog 📌
