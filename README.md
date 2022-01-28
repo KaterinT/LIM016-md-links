@@ -5,7 +5,7 @@
 * [1. MDKATE](#1-mdkate)
 * [2. Instalación](#2-instalación)
 * [3.1. Guía de uso (sin prompt)](#3-guía-de-uso-sin-prompt)
-* [3.2. Guía de uso (opcional: usando prompt)](#3-guía-de-uso-(-opcional-:-usando-prompt-)-)
+* [3.2. Guía de uso (opcional: usando prompt)](#3-guía-de-uso-opcional-usando-prompt)
 * [4. Flowchart](#4-flowchart)
 * [5. Backlog](#5-backlog)
 * [6. Dependencias empleadas](#6-dependencias-empleadas)
