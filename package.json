@@ -1,6 +1,6 @@
 {
   "name": "mdkate",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description":"* [1. MDKATE](#1-mdkate)\r * [2. Instalación](#2-instalación)\r * [3.1. Guía de uso (sin prompt)](#3-guía-de-uso-sin-prompt)\r* [3.2. Guía de uso (opcional: usando prompt)](#3-guía-de-uso-opcional-usando-prompt)\r* [4. Flowchart](#4-flowchart)\r* [5. Backlog](#5-backlog)\r* [6. Dependencias empleadas](#6-dependencias-empleadas)\r* [7. Fuentes](#7-fuentes)\r* [8. Autor-Maintainer](#8-autor-maintainer)\r* [9. Keywords](#9-keywords)",
   "main": "src/api.js",
   "bin": {
