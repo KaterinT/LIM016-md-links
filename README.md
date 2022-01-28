@@ -4,12 +4,12 @@
 
 * [1. MDKATE](#1-mdkate)
 * [2. Instalación](#2-instalación)
-* [3.1. Guía de uso (sin prompt)](#3-guía-de-uso-sin-prompt)
-* [3.2. Guía de uso (opcional: usando prompt)](#3-guía-de-uso-opcional-usando-prompt)
-* [4. Flowchart](#4-flowchart)
-* [5. Backlog](#5-backlog)
-* [6. Dependencias empleadas](#6-dependencias-empleadas)
-* [7. Fuentes](#7-fuentes)
+* [3.1. Guía de uso (sin prompt)](#3.1.-guía-de-uso-sin-prompt)
+* [3.2. Guía de uso (opcional: usando prompt)](#3,2,-guía-de-uso-opcional-usando-prompt)
+* [4. Flowchart](#4-Flowchart)
+* [5. Backlog](#5-Backlog-📌)
+* [6. Dependencias empleadas](#6-Dependencias-empleadas-👩🏾‍💻)
+* [7. Fuentes ](#7-Fuentes-📚)
 * [8. Autor-Maintainer](#8-autor-maintainer)
 * [9. Keywords](#9-keywords)
 
@@ -88,15 +88,15 @@ mdkate
 <img src="src/img/README/3mdkatePrompt.PNG" title ="mdkate paso3">
 </div>
 
-## 4.Flowchart
+## 4. Flowchart
 
  <details><summary>Diagramas</summary><p>
 
   * [API](flowcharts/API.png)
   <img src="flowcharts/API.png" title ="API">
-
+  
   * [CLI](flowcharts/CLI.png)
-  <img src="flowcharts/CLI.png" title ="CLI">
+  <img src="flowcharts/CLI .png" title ="CLI">
 
 </p></details>
 
